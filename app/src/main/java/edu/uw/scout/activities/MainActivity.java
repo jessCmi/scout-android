@@ -41,6 +41,7 @@ public class MainActivity extends ScoutActivity {
     @BindView(R.id.viewPager) ViewPager viewPager;
     @BindView(R.id.tabLayout) TabLayout tabLayout;
     @BindArray(R.array.scout_tabs) String[] scoutTabs;
+    //  TODO: Need a correct support email.
     @BindString(R.string.help_email) String helpEmail;
     @BindString(R.string.help_subject) String helpSubject;
     @BindArray(R.array.scout_tab_titles) String[] scoutTabTitles;
@@ -80,9 +81,10 @@ public class MainActivity extends ScoutActivity {
         // Set the tab icons
         try {
             tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_white_24dp);
-            tabLayout.getTabAt(1).setIcon(R.drawable.ic_restaurant_white_24dp);
-            tabLayout.getTabAt(2).setIcon(R.drawable.ic_local_library_white_24dp);
-            tabLayout.getTabAt(3).setIcon(R.drawable.ic_computer_white_24dp);
+            tabLayout.getTabAt(1).setIcon(R.drawable.ic_local_library_white_24dp);
+//            tabLayout.getTabAt(1).setIcon(R.drawable.ic_restaurant_white_24dp);
+//            tabLayout.getTabAt(2).setIcon(R.drawable.ic_local_library_white_24dp);
+//            tabLayout.getTabAt(3).setIcon(R.drawable.ic_computer_white_24dp);
         } catch (NullPointerException e) {
             Log.d(LOG_TAG, "Tab missing!");
         }
@@ -330,11 +332,12 @@ public class MainActivity extends ScoutActivity {
         String campusURL = userPreferences.getCampusURL();
         switch (tabLayout.getSelectedTabPosition()) {
             case 1:
-                return campusURL + "food/filter/";
-            case 2:
                 return campusURL + "study/filter/";
-            case 3:
-                return campusURL + "tech/filter/";
+//                return campusURL + "food/filter/";
+//            case 2:
+//                return campusURL + "study/filter/";
+//            case 3:
+//                return campusURL + "tech/filter/";
         }
         return campusURL + "study/filter/";
     }

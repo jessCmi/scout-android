@@ -4,7 +4,8 @@
     <string name="action_filter">Filter</string>
     <string name="action_done">Done</string>
 
-    <string name="scout_url">http://scout-test.s.uw.edu/h/</string>
+    <!--<string name="scout_url">http://scout-test.s.uw.edu/h/</string>-->
+    <string name="scout_url">http://smith-scout.commonmediainc.com/h/</string>
 
 
     <string name="title_activity_detail">Scout</string>

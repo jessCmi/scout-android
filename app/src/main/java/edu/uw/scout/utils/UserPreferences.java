@@ -26,7 +26,7 @@ public class UserPreferences {
     public String getCampusURL(){
         String baseURL = applicationContext.getResources().getString(R.string.scout_url);
 
-        String campus = PrefUtils.getFromPrefs(applicationContext, PrefUtils.PREF_CAMPUS, "seattle");
+        String campus = PrefUtils.getFromPrefs(applicationContext, PrefUtils.PREF_CAMPUS, "smith");
         campus += "/";
         campus = campus.toLowerCase();
 
@@ -49,7 +49,7 @@ public class UserPreferences {
      * Retrieves the index of the campus selected in terms of the campus string aray
      */
     public int getCampusSelectedIndex(){
-        String campus = PrefUtils.getFromPrefs(applicationContext, PrefUtils.PREF_CAMPUS, "seattle");
+        String campus = PrefUtils.getFromPrefs(applicationContext, PrefUtils.PREF_CAMPUS, "smith");
 
         String[] campuses = applicationContext.getResources().getStringArray(R.array.pref_campus_list_values);
 
