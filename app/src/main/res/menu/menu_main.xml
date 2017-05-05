@@ -3,12 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.MainActivity">
     <item
-        android:id="@+id/action_campus"
-        android:orderInCategory="80"
-        android:title="@string/action_settings"
-        android:icon="@drawable/ic_school_white_24dp"
-        app:showAsAction="ifRoom" />
-    <item
         android:id="@+id/action_filter"
         android:orderInCategory="90"
         android:title="@string/action_filter"

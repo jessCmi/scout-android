@@ -45,7 +45,7 @@ public class MainActivity extends ScoutActivity {
     @BindString(R.string.help_email) String helpEmail;
     @BindString(R.string.help_subject) String helpSubject;
     @BindArray(R.array.scout_tab_titles) String[] scoutTabTitles;
-    private int campusIndex = -1;
+    private int campusIndex = 0; // <- Automatically choose the Smith campus.
     private int tabPosition = -1;
     private ScoutTabFragmentAdapter scoutTabAdapter;
     private Menu menu;
@@ -82,22 +82,12 @@ public class MainActivity extends ScoutActivity {
         try {
             tabLayout.getTabAt(0).setIcon(R.drawable.ic_home_white_24dp);
             tabLayout.getTabAt(1).setIcon(R.drawable.ic_local_library_white_24dp);
-//            tabLayout.getTabAt(1).setIcon(R.drawable.ic_restaurant_white_24dp);
-//            tabLayout.getTabAt(2).setIcon(R.drawable.ic_local_library_white_24dp);
-//            tabLayout.getTabAt(3).setIcon(R.drawable.ic_computer_white_24dp);
         } catch (NullPointerException e) {
             Log.d(LOG_TAG, "Tab missing!");
         }
 
         switchTabs(0);
         changeTitle(0);
-
-        // If the user has not opened the app, show the campus chooser.
-        if (!userPreferences.hasUserOpenedApp()) {
-            showCampusChooser();
-        } else {
-            campusIndex = userPreferences.getCampusSelectedIndex();
-        }
 
         // If we are on discover, hide the filter button
         handler.postDelayed(hideFilterIcon, 50);
@@ -277,8 +267,6 @@ public class MainActivity extends ScoutActivity {
             String mailto = "mailto:" + helpEmail + "?subject=" + helpSubject;
             Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mailto));
             startActivity(browserIntent);
-        } else if (id == R.id.action_campus) {
-            showCampusChooser();
         }
 
         return super.onOptionsItemSelected(item);
@@ -295,18 +283,6 @@ public class MainActivity extends ScoutActivity {
             intent.putExtra(CONSTANTS.INTENT_URL_KEY, location);
             this.startActivity(intent);
         }
-    }
-
-    /**
-     * Shows a MaterialDialog that allows the user to select a campus
-     */
-    private void showCampusChooser() {
-        int campusIndexSelected = userPreferences.getCampusSelectedIndex();
-        new MaterialDialog.Builder(this)
-                .title(R.string.choose_campus)
-                .items(R.array.campus)
-                .itemsCallbackSingleChoice(campusIndexSelected, campusChoiceCallback)
-                .show();
     }
 
     private MaterialDialog.ListCallbackSingleChoice campusChoiceCallback =
