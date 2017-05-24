@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Scout</string>
+    <string name="app_name">SmithScape</string>
     <string name="action_settings">Settings</string>
     <string name="action_filter">Filter</string>
     <string name="action_done">Done</string>
@@ -8,7 +8,7 @@
     <string name="scout_url">http://smith-scout.commonmediainc.com/h/</string>
 
 
-    <string name="title_activity_detail">Scout</string>
+    <string name="title_activity_detail">SmithScape</string>
 
     <string name="title_activity_settings">Settings</string>
 
@@ -31,7 +31,7 @@
 
 
     <string name="help_email">help@uw.edu</string>
-    <string name="help_subject">Scout Android: Help Needed</string>
+    <string name="help_subject">SmithScape Android: Help Needed</string>
     <string name="action_okay">OK</string>
     <string name="temporarily_unavailable">This data is temporarily unavailable. Please try again later.</string>
     <string name="error_requesting">Error Requesting Data</string>

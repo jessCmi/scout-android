@@ -1,11 +1,9 @@
-package edu.uw.scout;
+package edu.smith.smithscape;
 
 import android.app.Application;
 
-import com.basecamp.turbolinks.TurbolinksSession;
-
-import edu.uw.scout.services.TurbolinksSessionManager;
-import edu.uw.scout.utils.UserPreferences;
+import edu.smith.smithscape.services.TurbolinksSessionManager;
+import edu.smith.smithscape.utils.UserPreferences;
 
 /**
  * Created by ezturner on 8/23/16.

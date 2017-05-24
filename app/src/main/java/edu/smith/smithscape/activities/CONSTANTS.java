@@ -1,4 +1,4 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 /**
  * Created by ezturner on 10/10/16.

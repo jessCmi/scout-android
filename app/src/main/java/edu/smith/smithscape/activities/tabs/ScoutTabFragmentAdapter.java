@@ -1,6 +1,5 @@
-package edu.uw.scout.activities.tabs;
+package edu.smith.smithscape.activities.tabs;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -1,4 +1,4 @@
-package edu.uw.scout;
+package edu.smith.smithscape;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

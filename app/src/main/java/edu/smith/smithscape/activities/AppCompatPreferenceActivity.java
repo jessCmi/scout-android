@@ -1,4 +1,4 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

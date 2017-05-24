@@ -1,18 +1,15 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import com.basecamp.turbolinks.TurbolinksAdapter;
 import com.basecamp.turbolinks.TurbolinksSession;
 
-import edu.uw.scout.Scout;
-import edu.uw.scout.services.TurbolinksSessionManager;
-import edu.uw.scout.utils.ErrorHandler;
-import edu.uw.scout.utils.UserPreferences;
+import edu.smith.smithscape.Scout;
+import edu.smith.smithscape.utils.ErrorHandler;
+import edu.smith.smithscape.utils.UserPreferences;
 
 /**
  * A superclass for turbolinks activities containing common variables and implementing stub

@@ -1,8 +1,6 @@
-package edu.uw.scout;
+package edu.smith.smithscape;
 
 import android.content.Context;
-
-import edu.uw.scout.utils.UserPreferences;
 
 /**
  * This is the analytics class that will handle all analytics events and ensure that we do not

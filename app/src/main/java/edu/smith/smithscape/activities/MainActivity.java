@@ -1,4 +1,4 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 import android.Manifest;
 import android.content.Intent;
@@ -23,11 +23,11 @@ import butterknife.BindArray;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.uw.scout.R;
-import edu.uw.scout.Scout;
-import edu.uw.scout.activities.tabs.ScoutTabFragment;
-import edu.uw.scout.activities.tabs.ScoutTabFragmentAdapter;
-import edu.uw.scout.utils.ScoutLocation;
+import edu.smith.smithscape.R;
+import edu.smith.smithscape.Scout;
+import edu.smith.smithscape.activities.tabs.ScoutTabFragment;
+import edu.smith.smithscape.activities.tabs.ScoutTabFragmentAdapter;
+import edu.smith.smithscape.utils.ScoutLocation;
 
 
 public class MainActivity extends ScoutActivity {
@@ -138,7 +138,7 @@ public class MainActivity extends ScoutActivity {
      */
     private void changeTitle(int position) {
         if (position < 0 || position >= scoutTabTitles.length)
-            throw new IllegalArgumentException("Tab index is outside of the scout tab titles array!");
+            throw new IllegalArgumentException("Tab index is outside of the smithscape tab titles array!");
 
         String title = scoutTabTitles[position];
         getSupportActionBar().setTitle(title);

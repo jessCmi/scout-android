@@ -1,9 +1,9 @@
-package edu.uw.scout.utils;
+package edu.smith.smithscape.utils;
 
 import android.content.Context;
 import android.util.Log;
 
-import edu.uw.scout.R;
+import edu.smith.smithscape.R;
 
 /**
  * This class manages user preferences, notably surrounding the campus, campus URL and whether

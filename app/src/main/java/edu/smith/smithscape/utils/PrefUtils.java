@@ -1,4 +1,4 @@
-package edu.uw.scout.utils;
+package edu.smith.smithscape.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

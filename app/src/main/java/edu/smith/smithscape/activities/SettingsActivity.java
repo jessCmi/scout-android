@@ -1,4 +1,4 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 
 import android.annotation.TargetApi;
@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-import edu.uw.scout.R;
+import edu.smith.smithscape.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

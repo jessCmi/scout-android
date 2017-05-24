@@ -3,12 +3,12 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="edu.uw.scout.activities.SettingsActivity$GeneralPreferenceFragment"
+        android:fragment="edu.smith.smithscape.activities.SettingsActivity$GeneralPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_campus"/>
 
     <header
-        android:fragment="edu.uw.scout.activities.SettingsActivity$AnalyticsPreferenceFragment"
+        android:fragment="edu.smith.smithscape.activities.SettingsActivity$AnalyticsPreferenceFragment"
         android:icon="@drawable/ic_info_black_24dp"
         android:title="@string/pref_header_analytics"/>
 

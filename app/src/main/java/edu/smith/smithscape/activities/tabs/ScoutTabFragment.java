@@ -1,6 +1,5 @@
-package edu.uw.scout.activities.tabs;
+package edu.smith.smithscape.activities.tabs;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,15 +15,13 @@ import com.basecamp.turbolinks.TurbolinksAdapter;
 import com.basecamp.turbolinks.TurbolinksSession;
 import com.basecamp.turbolinks.TurbolinksView;
 
-import edu.uw.scout.R;
-import edu.uw.scout.Scout;
-import edu.uw.scout.activities.CONSTANTS;
-import edu.uw.scout.activities.DetailActivity;
-import edu.uw.scout.activities.DiscoverCardActivity;
-import edu.uw.scout.activities.ScoutActivity;
-import edu.uw.scout.utils.ErrorHandler;
-import edu.uw.scout.utils.ScoutLocation;
-import edu.uw.scout.utils.UserPreferences;
+import edu.smith.smithscape.R;
+import edu.smith.smithscape.Scout;
+import edu.smith.smithscape.activities.CONSTANTS;
+import edu.smith.smithscape.activities.DetailActivity;
+import edu.smith.smithscape.activities.DiscoverCardActivity;
+import edu.smith.smithscape.utils.ScoutLocation;
+import edu.smith.smithscape.utils.UserPreferences;
 
 /**
  * This tab fragment handles a single tab, either Discover, Food, Study or Tech.

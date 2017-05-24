@@ -1,31 +1,31 @@
-package edu.uw.scout.activities;
+package edu.smith.smithscape.activities;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 
-import com.basecamp.turbolinks.TurbolinksSession;
 import com.basecamp.turbolinks.TurbolinksView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.uw.scout.R;
-import edu.uw.scout.Scout;
+import edu.smith.smithscape.R;
 
-public class DiscoverCardActivity extends ScoutActivity {
+/**
+ * This class is a detail view, for individual Spaces/tech items.
+ */
+public class DetailActivity extends ScoutActivity{
 
-    private static final String LOG_TAG = DiscoverCardActivity.class.getSimpleName();
+    private static final String LOG_TAG = DetailActivity.class.getSimpleName();
     private String location;
     @BindView(R.id.turbolinks_view) TurbolinksView turbolinksView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_discover_card);
+        setContentView(R.layout.activity_detail);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,7 +50,7 @@ public class DiscoverCardActivity extends ScoutActivity {
      */
     @Override
     public void visitCompleted() {
-        String pageTitle = TurbolinksSession.getDefault(this).getWebView().getTitle();
+        String pageTitle = turbolinksSession.getWebView().getTitle();
         ActionBar actionBar = getSupportActionBar();
 
         if (actionBar != null)
@@ -62,8 +62,7 @@ public class DiscoverCardActivity extends ScoutActivity {
      */
     @Override
     public void visitProposedToLocationWithAction(String location, String action) {
-        Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra(CONSTANTS.INTENT_URL_KEY, location);
-        this.startActivity(intent);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(location));
+        startActivity(browserIntent);
     }
 }

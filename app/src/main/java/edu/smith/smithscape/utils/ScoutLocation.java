@@ -1,7 +1,6 @@
-package edu.uw.scout.utils;
+package edu.smith.smithscape.utils;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.webkit.WebView;
 
-import com.basecamp.turbolinks.TurbolinksSession;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -23,8 +21,7 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uw.scout.Scout;
-import edu.uw.scout.activities.tabs.ScoutTabFragment;
+import edu.smith.smithscape.Scout;
 
 /**
  * Created by ezturner on 11/18/16.

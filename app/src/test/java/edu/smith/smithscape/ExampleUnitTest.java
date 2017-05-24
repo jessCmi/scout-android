@@ -1,4 +1,4 @@
-package edu.uw.scout;
+package edu.smith.smithscape;
 
 import org.junit.Test;
 
