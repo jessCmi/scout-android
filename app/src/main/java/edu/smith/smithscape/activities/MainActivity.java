@@ -104,7 +104,7 @@ public class MainActivity extends ScoutActivity {
         @Override
         public void run() {
             if (menu != null && tabLayout.getSelectedTabPosition() == 0) {
-                setIconVisible(false, 1);
+                setIconVisible(false, 0);
             } else if (menu == null) {
                 handler.postDelayed(hideFilterIcon, 50);
             }
@@ -151,11 +151,11 @@ public class MainActivity extends ScoutActivity {
     private void switchTabs(int tabSelected) {
         // Set the action bar icon to visible
         if (tabSelected == 0) {
-            setIconVisible(true, 0);
-            setIconVisible(false, 1);
-        } else {
             setIconVisible(false, 0);
             setIconVisible(true, 1);
+        } else {
+            setIconVisible(true, 0);
+            setIconVisible(false, 1);
         }
 
         try {
