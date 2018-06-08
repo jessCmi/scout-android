@@ -27,14 +27,14 @@ public class DiscoverCardActivity extends ScoutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discover_card);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ButterKnife.bind(this);
 
-        turbolinksView = (TurbolinksView) findViewById(R.id.turbolinks_view);
+        turbolinksView = findViewById(R.id.turbolinks_view);
 
         location = getIntent().getStringExtra(CONSTANTS.INTENT_URL_KEY);
 

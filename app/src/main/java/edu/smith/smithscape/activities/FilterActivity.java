@@ -37,7 +37,7 @@ public class FilterActivity extends ScoutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar) ;
+        Toolbar toolbar = findViewById(R.id.toolbar) ;
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,7 +45,7 @@ public class FilterActivity extends ScoutActivity {
         ButterKnife.bind(this);
 
         turbolinksSession.setScreenshotsEnabled(false);
-        turbolinksView = (TurbolinksView) findViewById(R.id.turbolinks_view);
+        turbolinksView = findViewById(R.id.turbolinks_view);
 
         location = getIntent().getStringExtra(CONSTANTS.INTENT_URL_KEY);
         filterType = getIntent().getIntExtra(CONSTANTS.FILTER_TYPE_KEY, 1);

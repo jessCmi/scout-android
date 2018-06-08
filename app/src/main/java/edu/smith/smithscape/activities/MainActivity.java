@@ -1,14 +1,11 @@
 package edu.smith.smithscape.activities;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
@@ -24,7 +21,6 @@ import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import edu.smith.smithscape.R;
-import edu.smith.smithscape.Scout;
 import edu.smith.smithscape.activities.tabs.ScoutTabFragment;
 import edu.smith.smithscape.activities.tabs.ScoutTabFragmentAdapter;
 import edu.smith.smithscape.utils.ScoutLocation;
@@ -49,7 +45,7 @@ public class MainActivity extends ScoutActivity {
     private ScoutTabFragmentAdapter scoutTabAdapter;
     private Menu menu;
     private Handler handler;
-    //    private ScoutLocation scoutLocation;
+    private ScoutLocation scoutLocation;
     private static final int LOCATION_REQ_CODE = 1592;
 
     @Override
@@ -57,7 +53,7 @@ public class MainActivity extends ScoutActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ButterKnife.bind(this);
 
@@ -91,11 +87,19 @@ public class MainActivity extends ScoutActivity {
         // If we are on discover, hide the filter button
         handler.postDelayed(hideFilterIcon, 50);
 
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(Scout.getInstance().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this, new String[]{"android.permission.ACCESS_FINE_LOCATION"}, LOCATION_REQ_CODE);
-//        } else {
-//            scoutLocation = new ScoutLocation();
-//        }
+        // If the ScoutLocation object exists, simply use the static version
+        /* 9/6/17 - temporarily remove to prevent asking permission on install
+        if(ScoutLocation.getInstance() != null){
+            scoutLocation = ScoutLocation.getInstance();
+        } else {
+            scoutLocation = new ScoutLocation(getApplicationContext());
+        }
+
+        // If it doesn't, check for permissions
+        if (!ScoutLocation.hasPermissions(this)) {
+            ActivityCompat.requestPermissions(this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"}, LOCATION_REQ_CODE);
+        }
+        */
 
     }
 
@@ -255,11 +259,6 @@ public class MainActivity extends ScoutActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            startActivity(new Intent(this, SettingsActivity.class));
-//            return true;
-//        } else if (id == R.id.action_filter) {
         if (id == R.id.action_filter) {
             Intent filterIntent = new Intent(this, FilterActivity.class);
             filterIntent.putExtra(CONSTANTS.INTENT_URL_KEY, getFilterURL());
@@ -311,26 +310,27 @@ public class MainActivity extends ScoutActivity {
         switch (tabLayout.getSelectedTabPosition()) {
             case 1:
                 return campusURL + "study/filter/";
-//                return campusURL + "food/filter/";
-//            case 2:
-//                return campusURL + "study/filter/";
-//            case 3:
-//                return campusURL + "tech/filter/";
         }
         return campusURL + "study/filter/";
     }
 
+    /* 9/6/17 - temporarily remove to prevent asking permission on install
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                                              int[] grantResults){
+        switch(requestCode){
+            case LOCATION_REQ_CODE:
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    scoutLocation.permissionGranted(getApplicationContext());
+                }
+            }
+    }
+    */
 
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-//                                           int[] grantResults) {
-//        switch (requestCode) {
-//            case LOCATION_REQ_CODE:
-//                if (grantResults.length > 0
-//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    scoutLocation = new ScoutLocation();
-//                }
-//        }
-//    }
+    @Override
+    public void refresh(){
+        ((ScoutTabFragment) scoutTabAdapter.getItem(tabPosition)).refresh();
+    }
 
 }

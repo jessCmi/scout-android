@@ -8,6 +8,7 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+
     <application
         android:name=".Scout"
         android:allowBackup="true"
@@ -26,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.ScoutActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SettingsActivity"
             android:label="@string/title_activity_settings"
