@@ -41,7 +41,6 @@ public class MainActivity extends ScoutActivity {
     @BindView(R.id.viewPager) ViewPager viewPager;
     @BindView(R.id.tabLayout) TabLayout tabLayout;
     @BindArray(R.array.scout_tabs) String[] scoutTabs;
-    //  TODO: Need a correct support email.
     @BindString(R.string.help_email) String helpEmail;
     @BindString(R.string.help_subject) String helpSubject;
     @BindArray(R.array.scout_tab_titles) String[] scoutTabTitles;
@@ -50,7 +49,7 @@ public class MainActivity extends ScoutActivity {
     private ScoutTabFragmentAdapter scoutTabAdapter;
     private Menu menu;
     private Handler handler;
-    private ScoutLocation scoutLocation;
+    //    private ScoutLocation scoutLocation;
     private static final int LOCATION_REQ_CODE = 1592;
 
     @Override
@@ -92,11 +91,11 @@ public class MainActivity extends ScoutActivity {
         // If we are on discover, hide the filter button
         handler.postDelayed(hideFilterIcon, 50);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(Scout.getInstance().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{"android.permission.ACCESS_FINE_LOCATION"}, LOCATION_REQ_CODE);
-        } else {
-            scoutLocation = new ScoutLocation();
-        }
+//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(Scout.getInstance().getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this, new String[]{"android.permission.ACCESS_FINE_LOCATION"}, LOCATION_REQ_CODE);
+//        } else {
+//            scoutLocation = new ScoutLocation();
+//        }
 
     }
 
@@ -134,6 +133,7 @@ public class MainActivity extends ScoutActivity {
 
     /**
      * Change the ActionBar title depending upon which tab we have selected
+     *
      * @param position the index of the tab selected
      */
     private void changeTitle(int position) {
@@ -146,6 +146,7 @@ public class MainActivity extends ScoutActivity {
 
     /**
      * Switches the colors of the tabs to reflect which is selected
+     *
      * @param tabSelected
      */
     private void switchTabs(int tabSelected) {
@@ -255,10 +256,11 @@ public class MainActivity extends ScoutActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            startActivity(new Intent(this, SettingsActivity.class));
-            return true;
-        } else if (id == R.id.action_filter) {
+//        if (id == R.id.action_settings) {
+//            startActivity(new Intent(this, SettingsActivity.class));
+//            return true;
+//        } else if (id == R.id.action_filter) {
+        if (id == R.id.action_filter) {
             Intent filterIntent = new Intent(this, FilterActivity.class);
             filterIntent.putExtra(CONSTANTS.INTENT_URL_KEY, getFilterURL());
             filterIntent.putExtra(CONSTANTS.FILTER_TYPE_KEY, tabLayout.getSelectedTabPosition());
@@ -319,18 +321,16 @@ public class MainActivity extends ScoutActivity {
     }
 
 
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                              int[] grantResults){
-        switch(requestCode){
-            case LOCATION_REQ_CODE:
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    scoutLocation = new ScoutLocation();
-                }
-            }
-    }
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, String[] permissions,
+//                                           int[] grantResults) {
+//        switch (requestCode) {
+//            case LOCATION_REQ_CODE:
+//                if (grantResults.length > 0
+//                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+//                    scoutLocation = new ScoutLocation();
+//                }
+//        }
+//    }
 
 }

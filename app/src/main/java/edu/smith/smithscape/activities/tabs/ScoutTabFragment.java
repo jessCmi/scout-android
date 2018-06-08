@@ -63,8 +63,8 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
             turbolinksSession = scout.getTurbolinksManager().getSession(getTabURL(), getContext());
         }
 
+        turbolinksSession.setPullToRefreshEnabled(false);
 
-        Log.d(LOG_TAG, "Logging Test!");
 
         return rootView;
     }
@@ -88,6 +88,8 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
                 .view(turbolinksView)
                 .visit(url);
 
+        lastVisit = System.currentTimeMillis();
+
     }
 
     @Override
@@ -97,16 +99,23 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
     }
 
     public void reloadTab(){
-        if(System.currentTimeMillis() - lastVisit <  150|| (url != null && url.equals(getTabURL())))
+        if(System.currentTimeMillis() - lastVisit <  150) {
+            Log.d(LOG_TAG, "Not visiting");
             return;
+        }
 
-        url = getTabURL();
+        if(!url.equals(getTabURL())){
+            url = getTabURL();
 
-        turbolinksSession
-                .activity(getActivity())
-                .adapter(this)
-                .view(turbolinksView)
-                .visit(url);
+            turbolinksSession
+                    .activity(getActivity())
+                    .adapter(this)
+                    .view(turbolinksView)
+                    .visit(url);
+            lastVisit = System.currentTimeMillis();
+        }
+        lastVisit = System.currentTimeMillis();
+
 
     }
 
@@ -136,7 +145,7 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
         switch (statusCode){
             case 404:
                 new MaterialDialog.Builder(getContext())
-                        .title(R.string.choose_campus)
+                        .title(R.string.not_found)
                         .positiveText(R.string.action_okay)
                         .onAny(new MaterialDialog.SingleButtonCallback() {
                             @Override
@@ -172,12 +181,21 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
         int tabIndex = getArguments().getInt(TAB_ID);
         String tabURL = userPreferences.getTabURL(tabIndex);
 
-        if(scoutLocation != null)
+        if(scoutLocation != null) {
+            if (!tabURL.contains("?")) {
+                tabURL += "?";
+            } else {
+                tabURL += "&";
+            }
+
             tabURL += scoutLocation.getLocationParams();
+        }
 
-        Log.d(LOG_TAG, "URL : " + tabURL);
         return tabURL;
+    }
 
+    public void refresh(){
+        turbolinksSession.getWebView().loadUrl(url);
     }
 
 }

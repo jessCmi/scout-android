@@ -2,11 +2,13 @@ package edu.smith.smithscape.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.basecamp.turbolinks.TurbolinksAdapter;
 import com.basecamp.turbolinks.TurbolinksSession;
 
+import edu.smith.smithscape.R;
 import edu.smith.smithscape.Scout;
 import edu.smith.smithscape.utils.ErrorHandler;
 import edu.smith.smithscape.utils.ScoutLocation;
@@ -41,6 +43,8 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
         } else {
             turbolinksSession = scout.getTurbolinksManager().getSession(location, this);
         }
+
+        turbolinksSession.setPullToRefreshEnabled(false);
     }
 
     @Override
@@ -50,8 +54,18 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
             case android.R.id.home:
                 super.onBackPressed();
                 return true;
+            case R.id.action_refresh:
+                refresh();
+                return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_scout, menu);
+        return true;
     }
 
     @Override
@@ -65,8 +79,9 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
             case 404:
                 turbolinksSession.getWebView().loadUrl("about:blank");
                 ErrorHandler.show404(this);
-                break;
+                return;
         }
+        ErrorHandler.showUncaught(this);
     }
 
     @Override
@@ -79,8 +94,9 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
         switch (statusCode){
             case 404:
                 ErrorHandler.show404(this);
-                break;
+                return;
         }
+        ErrorHandler.showUncaught(this);
     }
 
     @Override
@@ -91,5 +107,9 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
     @Override
     public void visitProposedToLocationWithAction(String location, String action) {
 
+    }
+
+    protected void refresh(){
+        turbolinksSession.getWebView().loadUrl(location);
     }
 }

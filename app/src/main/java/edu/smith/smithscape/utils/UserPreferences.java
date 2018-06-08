@@ -74,9 +74,13 @@ public class UserPreferences {
 
         String url = getCampusURL() + tabs[tab];
         String params = getFilterParams(tab);
+        Log.d(LOG_TAG, "Parameters are: " + params);
+
+        if(!url.contains("?"))
+            url += "?";
 
         if(!params.equals(""))
-            url += "?" + params;
+            url += params;
 
         return url;
     }
@@ -156,6 +160,18 @@ public class UserPreferences {
      */
     public boolean isOptedOut(){
         return PrefUtils.getFromPrefs(applicationContext, "analytics_pref_key", false);
+    }
+
+    public String getFilter(int id){
+        switch (id){
+            case 1:
+                return getFoodFilter();
+            case 2:
+                return getStudyFilter();
+            case 3:
+                return getTechFilter();
+        }
+        return "";
     }
 
     private String getFilter(String filterKey, String filterTimeKey){
