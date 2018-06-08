@@ -9,18 +9,20 @@ import com.basecamp.turbolinks.TurbolinksSession;
 
 import edu.smith.smithscape.Scout;
 import edu.smith.smithscape.utils.ErrorHandler;
+import edu.smith.smithscape.utils.ScoutLocation;
 import edu.smith.smithscape.utils.UserPreferences;
 
 /**
  * A superclass for turbolinks activities containing common variables and implementing stub
  * methods for TurbolinksAdapter.
  */
-public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapter{
+public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapter {
 
     private static final String LOG_TAG = ScoutActivity.class.getSimpleName();
     protected UserPreferences userPreferences;
     protected TurbolinksSession turbolinksSession;
     protected String location;
+    protected ScoutLocation scoutLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -28,6 +30,11 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
         userPreferences = new UserPreferences(this);
 
         location = getIntent().getStringExtra(CONSTANTS.INTENT_URL_KEY);
+        scoutLocation = ScoutLocation.getInstance();
+
+        if(scoutLocation != null)
+            location += scoutLocation.getLocationParams();
+
         Scout scout = Scout.getInstance();
         if(scout == null) {
             turbolinksSession = TurbolinksSession.getDefault(this);
@@ -85,5 +92,4 @@ public class ScoutActivity extends AppCompatActivity implements TurbolinksAdapte
     public void visitProposedToLocationWithAction(String location, String action) {
 
     }
-
 }

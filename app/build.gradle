@@ -1,16 +1,16 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    compileSdkVersion 26
+//    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "edu.smith.smithscape"
         minSdkVersion 19
-        targetSdkVersion 25
+        targetSdkVersion 16
         versionCode 11
         versionName "0.1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -27,16 +27,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    testCompile 'junit:junit:4.12'
-    androidTestCompile 'junit:junit:4.12'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.jakewharton:butterknife:8.2.1'
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.afollestad.material-dialogs:core:0.9.0.1'
-    compile 'com.google.android.gms:play-services-location:10.2.0'
-    compile 'com.google.android.gms:play-services-analytics:10.2.0'
-    compile 'com.basecamp:turbolinks:1.0.5'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.0'
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.jakewharton:butterknife:8.2.1'
+    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.afollestad.material-dialogs:core:0.9.0.1'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-analytics:16.0.0'
+    implementation 'com.basecamp:turbolinks:1.0.8'
 }
