@@ -1,6 +1,5 @@
 package edu.smith.smithscape.activities.tabs;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -21,9 +20,6 @@ import edu.smith.smithscape.Scout;
 import edu.smith.smithscape.activities.CONSTANTS;
 import edu.smith.smithscape.activities.DetailActivity;
 import edu.smith.smithscape.activities.DiscoverCardActivity;
-import edu.smith.smithscape.activities.ScoutActivity;
-import edu.smith.smithscape.utils.ErrorHandler;
-import edu.smith.smithscape.utils.ScoutLocation;
 import edu.smith.smithscape.utils.UserPreferences;
 
 /**
@@ -37,24 +33,16 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
     private TurbolinksSession turbolinksSession;
     private long lastVisit;
     private UserPreferences userPreferences;
-    private ScoutLocation scoutLocation;
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        // The last two arguments ensure LayoutParams are inflated
-        // properly.
-        View rootView = inflater.inflate(
-                R.layout.fragment_collection_object, container, false);
-        turbolinksView = (TurbolinksView) rootView.findViewById(R.id.turbolinks_view);
+        // The last two arguments ensure LayoutParams are inflated properly.
+        View rootView = inflater.inflate(R.layout.fragment_collection_object, container, false);
+        turbolinksView = rootView.findViewById(R.id.turbolinks_view);
 
         userPreferences = new UserPreferences(getActivity().getApplicationContext());
-        scoutLocation = ScoutLocation.getInstance();
-
-        if(scoutLocation == null){
-            scoutLocation = new ScoutLocation(getActivity().getApplicationContext());
-        }
 
         Scout scout = Scout.getInstance();
         if(scout == null) {
@@ -179,19 +167,7 @@ public class ScoutTabFragment extends Fragment implements TurbolinksAdapter {
 
     private String getTabURL(){
         int tabIndex = getArguments().getInt(TAB_ID);
-        String tabURL = userPreferences.getTabURL(tabIndex);
-
-        if(scoutLocation != null) {
-            if (!tabURL.contains("?")) {
-                tabURL += "?";
-            } else {
-                tabURL += "&";
-            }
-
-            tabURL += scoutLocation.getLocationParams();
-        }
-
-        return tabURL;
+        return userPreferences.getTabURL(tabIndex);
     }
 
     public void refresh(){

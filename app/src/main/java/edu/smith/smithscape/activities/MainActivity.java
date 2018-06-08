@@ -23,7 +23,6 @@ import butterknife.ButterKnife;
 import edu.smith.smithscape.R;
 import edu.smith.smithscape.activities.tabs.ScoutTabFragment;
 import edu.smith.smithscape.activities.tabs.ScoutTabFragmentAdapter;
-import edu.smith.smithscape.utils.ScoutLocation;
 
 
 public class MainActivity extends ScoutActivity {
@@ -45,8 +44,6 @@ public class MainActivity extends ScoutActivity {
     private ScoutTabFragmentAdapter scoutTabAdapter;
     private Menu menu;
     private Handler handler;
-    private ScoutLocation scoutLocation;
-    private static final int LOCATION_REQ_CODE = 1592;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,20 +83,6 @@ public class MainActivity extends ScoutActivity {
 
         // If we are on discover, hide the filter button
         handler.postDelayed(hideFilterIcon, 50);
-
-        // If the ScoutLocation object exists, simply use the static version
-        /* 9/6/17 - temporarily remove to prevent asking permission on install
-        if(ScoutLocation.getInstance() != null){
-            scoutLocation = ScoutLocation.getInstance();
-        } else {
-            scoutLocation = new ScoutLocation(getApplicationContext());
-        }
-
-        // If it doesn't, check for permissions
-        if (!ScoutLocation.hasPermissions(this)) {
-            ActivityCompat.requestPermissions(this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"}, LOCATION_REQ_CODE);
-        }
-        */
 
     }
 
@@ -313,20 +296,6 @@ public class MainActivity extends ScoutActivity {
         }
         return campusURL + "study/filter/";
     }
-
-    /* 9/6/17 - temporarily remove to prevent asking permission on install
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                                              int[] grantResults){
-        switch(requestCode){
-            case LOCATION_REQ_CODE:
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    scoutLocation.permissionGranted(getApplicationContext());
-                }
-            }
-    }
-    */
 
     @Override
     public void refresh(){
