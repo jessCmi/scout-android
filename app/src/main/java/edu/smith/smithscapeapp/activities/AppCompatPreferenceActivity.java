@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 import android.content.res.Configuration;
 import android.os.Bundle;

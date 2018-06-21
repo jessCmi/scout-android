@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities.tabs;
+package edu.smith.smithscapeapp.activities.tabs;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;

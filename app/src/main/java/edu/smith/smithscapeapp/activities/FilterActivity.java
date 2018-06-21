@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
@@ -18,8 +18,8 @@ import com.basecamp.turbolinks.TurbolinksView;
 import butterknife.BindArray;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.smith.smithscape.R;
-import edu.smith.smithscape.utils.UserPreferences;
+import edu.smith.smithscapeapp.R;
+import edu.smith.smithscapeapp.utils.UserPreferences;
 
 public class FilterActivity extends ScoutActivity {
 

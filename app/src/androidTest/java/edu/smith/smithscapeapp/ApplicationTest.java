@@ -1,4 +1,4 @@
-package edu.smith.smithscape;
+package edu.smith.smithscapeapp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package edu.smith.smithscape.services;
+package edu.smith.smithscapeapp.services;
 
 import android.app.Service;
 import android.content.Context;

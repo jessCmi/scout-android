@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -20,9 +20,9 @@ import butterknife.BindArray;
 import butterknife.BindString;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.smith.smithscape.R;
-import edu.smith.smithscape.activities.tabs.ScoutTabFragment;
-import edu.smith.smithscape.activities.tabs.ScoutTabFragmentAdapter;
+import edu.smith.smithscapeapp.R;
+import edu.smith.smithscapeapp.activities.tabs.ScoutTabFragment;
+import edu.smith.smithscapeapp.activities.tabs.ScoutTabFragmentAdapter;
 
 
 public class MainActivity extends ScoutActivity {

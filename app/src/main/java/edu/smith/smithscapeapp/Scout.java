@@ -1,8 +1,8 @@
-package edu.smith.smithscape;
+package edu.smith.smithscapeapp;
 
 import android.app.Application;
-import edu.smith.smithscape.services.TurbolinksSessionManager;
-import edu.smith.smithscape.utils.UserPreferences;
+import edu.smith.smithscapeapp.services.TurbolinksSessionManager;
+import edu.smith.smithscapeapp.utils.UserPreferences;
 
 /**
  * Created by ezturner on 8/23/16.

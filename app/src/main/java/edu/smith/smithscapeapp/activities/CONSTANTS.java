@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 /**
  * Created by ezturner on 10/10/16.

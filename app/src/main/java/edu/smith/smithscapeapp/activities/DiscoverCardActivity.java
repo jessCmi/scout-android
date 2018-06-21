@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,8 +13,8 @@ import com.basecamp.turbolinks.TurbolinksView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.smith.smithscape.R;
-import edu.smith.smithscape.Scout;
+import edu.smith.smithscapeapp.R;
+import edu.smith.smithscapeapp.Scout;
 
 public class DiscoverCardActivity extends ScoutActivity {
 

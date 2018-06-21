@@ -1,4 +1,4 @@
-package edu.smith.smithscape.utils;
+package edu.smith.smithscapeapp.utils;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;
@@ -6,7 +6,7 @@ import android.support.annotation.NonNull;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 
-import edu.smith.smithscape.R;
+import edu.smith.smithscapeapp.R;
 
 /**
  * Handles errors with a Material Design popup

@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities.tabs;
+package edu.smith.smithscapeapp.activities.tabs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,12 +15,12 @@ import com.basecamp.turbolinks.TurbolinksAdapter;
 import com.basecamp.turbolinks.TurbolinksSession;
 import com.basecamp.turbolinks.TurbolinksView;
 
-import edu.smith.smithscape.R;
-import edu.smith.smithscape.Scout;
-import edu.smith.smithscape.activities.CONSTANTS;
-import edu.smith.smithscape.activities.DetailActivity;
-import edu.smith.smithscape.activities.DiscoverCardActivity;
-import edu.smith.smithscape.utils.UserPreferences;
+import edu.smith.smithscapeapp.R;
+import edu.smith.smithscapeapp.Scout;
+import edu.smith.smithscapeapp.activities.CONSTANTS;
+import edu.smith.smithscapeapp.activities.DetailActivity;
+import edu.smith.smithscapeapp.activities.DiscoverCardActivity;
+import edu.smith.smithscapeapp.utils.UserPreferences;
 
 /**
  * This tab fragment handles a single tab, either Discover, Food, Study or Tech.

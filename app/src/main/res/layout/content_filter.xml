@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.smith.smithscape.activities.FilterActivity">
+    tools:context="edu.smith.smithscapeapp.activities.FilterActivity">
 
     <com.basecamp.turbolinks.TurbolinksView
         android:id="@+id/turbolinks_view"

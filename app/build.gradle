@@ -4,7 +4,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "edu.smith.smithscape"
+        applicationId "edu.smith.smithscapeapp"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 13

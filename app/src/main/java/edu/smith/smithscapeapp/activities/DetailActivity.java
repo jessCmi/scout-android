@@ -1,4 +1,4 @@
-package edu.smith.smithscape.activities;
+package edu.smith.smithscapeapp.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,9 +16,9 @@ import com.basecamp.turbolinks.TurbolinksView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import edu.smith.smithscape.R;
-import edu.smith.smithscape.Scout;
-import edu.smith.smithscape.services.TurbolinksSessionManager;
+import edu.smith.smithscapeapp.R;
+import edu.smith.smithscapeapp.Scout;
+import edu.smith.smithscapeapp.services.TurbolinksSessionManager;
 
 /**
  * This class is a detail view, for individual Spaces/tech items.
